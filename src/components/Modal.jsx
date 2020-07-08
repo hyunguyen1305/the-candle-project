@@ -17,6 +17,7 @@ function Modal({ item }) {
     cssEase: "linear",
     customPaging: function (i) {
       return (
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a key={i}>
           <img src={sliderImages[i]} style={{ maxWidth: "100%" }} alt={i} />
         </a>
