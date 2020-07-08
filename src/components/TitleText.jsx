@@ -7,7 +7,7 @@ const TitleTextWrapper = styled.div`
   width: 100%;
   .title-text {
     text-transform: uppercase;
-    /* display: inline-block; */
+    display: ${(props) => (props.full ? "inline-block" : "block")};
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -21,7 +21,7 @@ const TitleTextWrapper = styled.div`
 
 function TitleText(props) {
   return (
-    <TitleTextWrapper>
+    <TitleTextWrapper full={props.full}>
       <h1 className="title-text">{props.text}</h1>
     </TitleTextWrapper>
   );

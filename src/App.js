@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./App.css";
 import NavBar from "./components/NavBar";
@@ -44,12 +44,47 @@ const listProduct = [
 ];
 
 function App() {
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
+  const handleScroll = () => {
+    if (ref.current) {
+      setSticky(ref.current.getBoundingClientRect().top <= 0);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", () => handleScroll);
+    };
+  }, []);
+
   return (
     <div className="full-page">
-      <NavBar></NavBar>
+      <div className={`${isSticky ? " sticky" : ""}`} ref={ref}>
+        <NavBar></NavBar>
+      </div>
+
       <main>
         <section className="container py-3">
-          <TitleText text="The Candle Project"></TitleText>
+          <TitleText text="The Candle Project" full={false}></TitleText>
+        </section>
+        <section className="container py-3">
+          <div className="row">
+            {listProduct.map((item) => {
+              return (
+                <div
+                  className="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-xs-12"
+                  key={item.text}
+                >
+                  <ProductItem item={item}></ProductItem>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <section className="container py-3">
+          <TitleText text="The Candle Project" full={true}></TitleText>
         </section>
         <section className="container py-3">
           <div className="row">

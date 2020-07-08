@@ -7,6 +7,12 @@
   flex: 1;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* this is optional and should be different for every project */
+}
+
 .title-text::before {
   content: "";
   position: absolute;

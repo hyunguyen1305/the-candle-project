@@ -16,7 +16,7 @@ const PromotionWrapper = styled.div`
   justify-content: space-between;
 
   padding: 0 12px;
-  height: 64px;
+  height: 40px;
   width: 100%;
 
   background-color: rgb(230, 124, 115);

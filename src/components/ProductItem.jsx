@@ -94,6 +94,7 @@ function ProductItem({ item }) {
         slider.current.slickPause();
       }}
       colorTheme={item.colorTheme}
+      title={item.text}
     >
       <div style={{ position: "relative", overflow: "hidden" }}>
         <Slider ref={slider} {...settings}>
