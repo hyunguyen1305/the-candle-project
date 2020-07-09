@@ -107,13 +107,12 @@ function App() {
       <Footer></Footer>
       <MessengerCustomerChat
         pageId="112921177133784"
-        xfbml={isShowMess}
+        htmlRef="refMess"
         appId="271352487290845"
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."
         loggedOutGreeting="Chao Xìn ..."
         language="vi_VN"
-        minimized={isShowMess}
       />
     </div>
   );
