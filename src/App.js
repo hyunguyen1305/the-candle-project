@@ -12,7 +12,6 @@ import mint from "./assets/images/mint.png";
 import orange from "./assets/images/orange.png";
 import placeholder from "./assets/images/1280.png";
 import MessengerCustomerChat from "react-messenger-customer-chat";
-import Slider from "react-slick";
 
 const listProduct = [
   {
