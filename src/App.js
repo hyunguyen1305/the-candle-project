@@ -110,8 +110,7 @@ function App() {
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."
         greetingDialogDisplay="fade"
-        greetingDialogDelay="2000"
-        minimized={true}
+        version="v7.0"
       />
     </div>
   );
