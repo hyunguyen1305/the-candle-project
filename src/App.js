@@ -109,9 +109,10 @@ function App() {
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."
         loggedOutGreeting="Chao Xìn ..."
-        greetingDialogDelay={4000}
+        greetingDialogDelay={4}
         greetingDialogDisplay="fade"
         language="vi_VN"
+        minimized={true}
       />
     </div>
   );
