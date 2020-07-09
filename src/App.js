@@ -108,6 +108,8 @@ function App() {
         appId="271352487290845"
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."
+        loggedOutGreeting="Chao Xìn ..."
+        greetingDialogDelay={4000}
         greetingDialogDisplay="fade"
         language="vi_VN"
       />
