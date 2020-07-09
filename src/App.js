@@ -12,6 +12,7 @@ import mint from "./assets/images/mint.png";
 import orange from "./assets/images/orange.png";
 import placeholder from "./assets/images/1280.png";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import Slider from "react-slick";
 
 const listProduct = [
   {
@@ -48,6 +49,7 @@ function App() {
   const [isSticky, setSticky] = useState(false);
   const [isShowMess, setShow] = useState(false);
   const ref = useRef(null);
+  const refMess = useRef(null);
   const handleScroll = () => {
     if (ref.current) {
       setSticky(ref.current.getBoundingClientRect().top <= 0);
@@ -66,7 +68,8 @@ function App() {
       <div className={`${isSticky ? " sticky" : ""}`} ref={ref}>
         <NavBar></NavBar>
       </div>
-
+      {console.log("refSlide ", ref)}
+      {console.log("refMess ", refMess)}
       <main>
         <section className="container py-3">
           <TitleText text="The Candle Project" full={false}></TitleText>
@@ -107,7 +110,7 @@ function App() {
       <Footer></Footer>
       <MessengerCustomerChat
         pageId="112921177133784"
-        htmlRef="refMess"
+        htmlRef={refMess}
         appId="271352487290845"
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."

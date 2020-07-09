@@ -86,7 +86,6 @@ function ProductItem({ item }) {
   return (
     <ProductItemWrapper
       onMouseEnter={() => {
-        console.log(slider.current);
         slider.current.slickPlay();
       }}
       onMouseLeave={() => {
