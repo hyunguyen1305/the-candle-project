@@ -14,7 +14,6 @@ ReactDOM.render(
       themeColor="#0084ff"
       loggedInGreeting="Xin chào ..."
       greetingDialogDisplay="fade"
-      version="v7.0"
       language="vi_VN"
     />
   </BrowserRouter>,
