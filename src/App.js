@@ -11,6 +11,7 @@ import cinnamon from "./assets/images/cinnamon.png";
 import mint from "./assets/images/mint.png";
 import orange from "./assets/images/orange.png";
 import placeholder from "./assets/images/1280.png";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const listProduct = [
   {
@@ -102,6 +103,14 @@ function App() {
         </section>
       </main>
       <Footer></Footer>
+      <MessengerCustomerChat
+        pageId="112921177133784"
+        appId="271352487290845"
+        themeColor="#0084ff"
+        loggedInGreeting="Xin chào ..."
+        greetingDialogDisplay="fade"
+        language="vi_VN"
+      />
     </div>
   );
 }
