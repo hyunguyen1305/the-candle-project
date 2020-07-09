@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar";
 import TitleText from "./components/TitleText";
 import ProductItem from "./components/ProductItem";
 import Footer from "./components/Footer";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 import lavender from "./assets/images/lavender.png";
 import cinnamon from "./assets/images/cinnamon.png";
@@ -103,15 +102,6 @@ function App() {
         </section>
       </main>
       <Footer></Footer>
-
-      <MessengerCustomerChat
-        pageId="112921177133784"
-        appId="271352487290845"
-        themeColor="#0084ff"
-        loggedInGreeting="Xin chào ..."
-        greetingDialogDisplay="fade"
-        version="v7.0"
-      />
     </div>
   );
 }
