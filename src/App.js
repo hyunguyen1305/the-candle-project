@@ -46,6 +46,7 @@ const listProduct = [
 
 function App() {
   const [isSticky, setSticky] = useState(false);
+  const [isShowMess, setShow] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
     if (ref.current) {
@@ -102,15 +103,17 @@ function App() {
           </div>
         </section>
       </main>
+      <button onClick={() => setShow(!isShowMess)}>Show/hide</button>
       <Footer></Footer>
       <MessengerCustomerChat
         pageId="112921177133784"
+        xfbml={isShowMess}
         appId="271352487290845"
         themeColor="#0084ff"
         loggedInGreeting="Xin chào ..."
         loggedOutGreeting="Chao Xìn ..."
         language="vi_VN"
-        minimized={false}
+        minimized={isShowMess}
       />
     </div>
   );
