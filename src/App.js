@@ -55,15 +55,18 @@ function App() {
     }
   };
   useEffect(() => {
-    const a = refMess;
-    console.log(a);
-  }, []);
-  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", () => handleScroll);
     };
+  }, []);
+  useEffect(() => {
+    const a = refMess.current;
+    if (a.state.fbLoaded) {
+      const ifr = document.querySelector(`[data-testid="bubble_iframe"]`);
+      console.log(ifr);
+    }
   }, []);
 
   return (
