@@ -55,6 +55,10 @@ function App() {
     }
   };
   useEffect(() => {
+    const a = refMess;
+    console.log(a);
+  }, []);
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -109,12 +113,12 @@ function App() {
       <Footer></Footer>
       <MessengerCustomerChat
         pageId="112921177133784"
-        htmlRef={refMess}
         appId="271352487290845"
-        themeColor="#0084ff"
+        themeColor="#FF5252"
         loggedInGreeting="Xin chào ..."
         loggedOutGreeting="Chao Xìn ..."
-        language="vi_VN"
+        htmlRef="refMess"
+        ref={refMess}
       />
     </div>
   );
