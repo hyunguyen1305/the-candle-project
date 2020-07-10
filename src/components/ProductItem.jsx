@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 import Modal from "./Modal";
+import Fade from "react-reveal/Fade";
 
 const MySwal = withReactContent(Swal);
 
@@ -54,12 +55,12 @@ const ProductItemWrapper = styled.div`
   }
 `;
 
-function ProductItem({ item }) {
+function ProductItem({ item, delay }) {
   const slider = useRef(null);
   const settings = {
     fade: true,
     infinite: true,
-    speed: 250,
+    speed: 550,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 750,
@@ -84,47 +85,49 @@ function ProductItem({ item }) {
     });
   };
   return (
-    <ProductItemWrapper
-      onMouseEnter={() => {
-        slider.current.slickPlay();
-      }}
-      onMouseLeave={() => {
-        slider.current.slickGoTo(0);
-        slider.current.slickPause();
-      }}
-      colorTheme={item.colorTheme}
-      title={item.text}
-    >
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <Slider ref={slider} {...settings}>
-          <img
-            src={item.bigImage}
-            alt={item.text}
-            className="product-item__image"
-          ></img>
-          {item.listImages.map((item, i) => {
-            return (
-              <img
-                key={i}
-                src={item}
-                alt="Summer Collection (No.1)"
-                className="product-item__image"
-              ></img>
-            );
-          })}
-        </Slider>
-        <div className="quick-view" onClick={handleClick}>
-          Quick View
-        </div>
-      </div>
-      <h2
-        className="product-item__text"
+    <Fade bottom delay={delay * 200}>
+      <ProductItemWrapper
+        onMouseEnter={() => {
+          slider.current.slickPlay();
+        }}
+        onMouseLeave={() => {
+          slider.current.slickGoTo(0);
+          slider.current.slickPause();
+        }}
+        colorTheme={item.colorTheme}
         title={item.text}
-        onClick={handleClick}
       >
-        {item.text}
-      </h2>
-    </ProductItemWrapper>
+        <div style={{ position: "relative", overflow: "hidden" }}>
+          <Slider ref={slider} {...settings}>
+            <img
+              src={item.bigImage}
+              alt={item.text}
+              className="product-item__image"
+            ></img>
+            {item.listImages.map((item, i) => {
+              return (
+                <img
+                  key={i}
+                  src={item}
+                  alt="Summer Collection (No.1)"
+                  className="product-item__image"
+                ></img>
+              );
+            })}
+          </Slider>
+          <div className="quick-view" onClick={handleClick}>
+            Show Details
+          </div>
+        </div>
+        <h2
+          className="product-item__text"
+          title={item.text}
+          onClick={handleClick}
+        >
+          {item.text}
+        </h2>
+      </ProductItemWrapper>
+    </Fade>
   );
 }
 

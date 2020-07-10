@@ -11,7 +11,7 @@ import cinnamon from "./assets/images/cinnamon.png";
 import mint from "./assets/images/mint.png";
 import orange from "./assets/images/orange.png";
 import placeholder from "./assets/images/1280.png";
-import MessengerCustomerChat from "react-messenger-customer-chat";
+import ChatBox from "./components/ChatBox";
 
 const listProduct = [
   {
@@ -46,9 +46,8 @@ const listProduct = [
 
 function App() {
   const [isSticky, setSticky] = useState(false);
-  const [isShowMess, setShow] = useState(false);
+
   const ref = useRef(null);
-  const refMess = useRef(null);
   const handleScroll = () => {
     if (ref.current) {
       setSticky(ref.current.getBoundingClientRect().top <= 0);
@@ -61,68 +60,33 @@ function App() {
       window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
-  useEffect(() => {
-    const a = refMess.current;
-    if (a.state.fbLoaded) {
-      const ifr = document.querySelector(`[data-testid="bubble_iframe"]`);
-      console.log(ifr);
-    }
-  }, []);
 
   return (
     <div className="full-page">
       <div className={`${isSticky ? " sticky" : ""}`} ref={ref}>
         <NavBar></NavBar>
       </div>
-      {console.log("refSlide ", ref)}
-      {console.log("refMess ", refMess)}
       <main>
         <section className="container py-3">
           <TitleText text="The Candle Project" full={false}></TitleText>
         </section>
         <section className="container py-3">
           <div className="row">
-            {listProduct.map((item) => {
+            {listProduct.map((item, i) => {
               return (
                 <div
                   className="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-xs-12"
                   key={item.text}
                 >
-                  <ProductItem item={item}></ProductItem>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-        <section className="container py-3">
-          <TitleText text="The Candle Project" full={true}></TitleText>
-        </section>
-        <section className="container py-3">
-          <div className="row">
-            {listProduct.map((item) => {
-              return (
-                <div
-                  className="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-xs-12"
-                  key={item.text}
-                >
-                  <ProductItem item={item}></ProductItem>
+                  <ProductItem item={item} delay={i}></ProductItem>
                 </div>
               );
             })}
           </div>
         </section>
       </main>
-      <button onClick={() => setShow(!isShowMess)}>Show/hide</button>
       <Footer></Footer>
-      <MessengerCustomerChat
-        pageId="112921177133784"
-        appId="271352487290845"
-        themeColor="#FF5252"
-        loggedInGreeting="Xin chào ..."
-        loggedOutGreeting="Chao Xìn ..."
-        htmlRef="refMess"
-        ref={refMess}
-      />
+      <ChatBox></ChatBox>
     </div>
   );
 }

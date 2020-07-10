@@ -2,9 +2,23 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .full-page main {
   flex: 1;
+}
+.full-page .lien-he {
+  position: fixed;
+  bottom: 2rem;
+  left: 8px;
+}
+.lien-he__group .button_icon {
+  width: 44px;
+  margin: 0 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 4px;
 }
 
 .sticky {
@@ -19,8 +33,19 @@
   bottom: -20px;
   left: 0;
   height: 12px;
-  width: 100%;
+  animation-name: slide100;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 1.2s;
   background-color: rgba(255, 82, 82, 1);
+}
+@keyframes slide100 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .swal2-content {

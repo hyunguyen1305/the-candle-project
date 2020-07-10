@@ -25,7 +25,7 @@ const PromotionWrapper = styled.div`
   .icon-close {
     cursor: pointer;
     margin-left: auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -51,6 +51,7 @@ function NavBar() {
           <MdClose className="icon-close" color="white"></MdClose>
         </div>
       </PromotionWrapper>
+
       <NavBarWrapper>
         <div
           style={{

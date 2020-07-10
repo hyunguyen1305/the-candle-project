@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import Fade from "react-reveal/Fade";
+
 const TitleTextWrapper = styled.div`
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
@@ -22,7 +24,11 @@ const TitleTextWrapper = styled.div`
 function TitleText(props) {
   return (
     <TitleTextWrapper full={props.full}>
-      <h1 className="title-text">{props.text}</h1>
+      <h1 className="title-text">
+        <Fade top delay={500}>
+          {props.text}
+        </Fade>
+      </h1>
     </TitleTextWrapper>
   );
 }
