@@ -6,6 +6,7 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 
 import messenger from "../assets/images/fb-messenger.svg";
 import zalo from "../assets/images/zalo.png";
+import Jello from "react-reveal/Jello";
 
 function ChatBox() {
   const [isShowChat, setShow] = useState(false);
@@ -37,19 +38,21 @@ function ChatBox() {
         onMouseDown={handleMouseDown}
       >
         <div className="lien-he handle" ref={drag}>
-          <div
-            style={{
-              backgroundColor: "rgba(255, 82, 82, 1)",
-              border: "1px solid black",
-              borderRadius: "50%",
-              padding: "6px 10px 8px 8px",
-              cursor: "pointer",
-              margin: "0 8px",
-            }}
-            title="Contact Us"
-          >
-            <BsFillChatDotsFill color="white" size={30}></BsFillChatDotsFill>
-          </div>
+          <Jello forever>
+            <div
+              style={{
+                backgroundColor: "rgba(255, 82, 82, 1)",
+                border: "1px solid black",
+                borderRadius: "50%",
+                padding: "6px 10px 8px 8px",
+                cursor: "pointer",
+                margin: "0 8px",
+              }}
+              title="Contact Us"
+            >
+              <BsFillChatDotsFill color="white" size={30}></BsFillChatDotsFill>
+            </div>
+          </Jello>
         </div>
       </Draggable>
 
